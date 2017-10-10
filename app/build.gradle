@@ -21,7 +21,7 @@ android {
         versionName "1.0"
 
         buildConfigField "int", "LIMIT", "100"
-        buildConfigField "String", "BASEURL", "\"http://private-b8cf44-androidcleancode.apiary-mock.com/\""
+        buildConfigField "String", "BASEURL", "\"http://www.splashbase.co/\""
         buildConfigField "int", "CACHETIME", "432000" // 5days
 
     }
