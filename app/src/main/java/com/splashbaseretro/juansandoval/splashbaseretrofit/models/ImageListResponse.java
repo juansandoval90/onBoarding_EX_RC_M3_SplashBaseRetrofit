@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import javax.annotation.Generated;
+
+@Generated("org.jsonschema2pojo")
 public class ImageListResponse {
 
     @SerializedName("images")
