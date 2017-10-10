@@ -16,7 +16,7 @@ public class Service {
     public Service(NetworkService networkService) {
         this.networkService = networkService;
     }
-    
+
     public Subscription getImageList(final GetImageListCallback callback){
         return networkService.getImageList()
                 .subscribeOn(Schedulers.io())
