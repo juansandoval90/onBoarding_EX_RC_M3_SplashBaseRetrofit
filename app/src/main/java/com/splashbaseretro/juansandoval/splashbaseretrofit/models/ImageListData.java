@@ -17,7 +17,7 @@ public class ImageListData {
     private String largeUrl;
     @SerializedName("source_id")
     @Expose
-    private Object sourceId;
+    private String background;
 
 
     /**
@@ -79,17 +79,17 @@ public class ImageListData {
      * @return
      * The SourceId
      */
-    public Object getSourceId() {
-        return sourceId;
+    public String getBackground() {
+        return background;
     }
 
     /**
      *
-     * @param sourceId
+     * @param background
      * The id
      */
-    public void setSourceId(Object sourceId) {
-        this.sourceId = sourceId;
+    public void setBackground(String background) {
+        this.background = background;
     }
 
 }

@@ -9,7 +9,6 @@ import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
 public class HomePresenter {
-
     private final Service service;
     private final HomeView view;
     private CompositeSubscription subscriptions;
@@ -35,6 +34,7 @@ public class HomePresenter {
                 view.removeWait();
                 view.onFailure(networkError.getAppErrorMessage());
             }
+
         });
 
         subscriptions.add(subscription);

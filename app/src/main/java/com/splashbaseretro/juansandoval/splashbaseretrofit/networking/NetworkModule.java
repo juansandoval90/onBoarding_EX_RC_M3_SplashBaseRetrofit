@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 import okhttp3.Cache;
 import okhttp3.Interceptor;
@@ -18,6 +19,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
+@Module
 public class NetworkModule {
 
     File cacheFile;
@@ -68,12 +70,14 @@ public class NetworkModule {
 
     @Provides
     @Singleton
+    @SuppressWarnings("unused")
     public NetworkService providesNetworkService(Retrofit retrofit){
         return retrofit.create(NetworkService.class);
     }
 
     @Provides
     @Singleton
+    @SuppressWarnings("unused")
     public Service providesService(NetworkService networkService){
         return new Service(networkService);    }
 }

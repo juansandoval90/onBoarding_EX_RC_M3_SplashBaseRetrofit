@@ -1,11 +1,10 @@
 package com.splashbaseretro.juansandoval.splashbaseretrofit.models;
 
 
-import android.media.Image;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Generated;
@@ -15,25 +14,16 @@ public class ImageListResponse {
 
     @SerializedName("images")
     @Expose
-    private List<Image> images = null;
+    private List<ImageListData> data = new ArrayList<ImageListData>();
 
-    /**
-     *
-     * @return
-     * The images
-     */
-    public List<Image> getImages() {
-        return images;
+    public List<ImageListData> getImages() {
+        return data;
     }
 
-    /**
-     *
-     * @param images
-     * The images
-     */
-    public void setImages(List<Image> images) {
-        this.images = images;
+    public void setImages(List<ImageListData> data) {
+        this.data = data;
     }
+
 
 
 }

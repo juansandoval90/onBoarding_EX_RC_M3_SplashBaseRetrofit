@@ -35,12 +35,12 @@ public class Service {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        callback.onError(new NetworkError(e));
                     }
 
                     @Override
                     public void onNext(ImageListResponse imageListResponse) {
-
+                        callback.onSuccess(imageListResponse);
                     }
                 });
     }
