@@ -6,8 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.splashbaseretro.juansandoval.splashbaseretrofit.R;
 import com.splashbaseretro.juansandoval.splashbaseretrofit.models.ImageListData;
 
@@ -35,6 +39,18 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(HomeAdapter.ViewHolder holder, int position) {
         holder.click(data.get(position), listener);
+        holder.tvUrl.setText(String.valueOf(data.get(position).getId()));
+        holder.tvLargeUrl.setText(data.get(position).getLargeUrl());
+
+        String images = data.get(position).getLargeUrl();
+
+        Glide.with(context)
+                .load(images)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .skipMemoryCache(true)
+                .into(holder.background);
+
+
     }
 
     @Override
@@ -47,10 +63,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
+        TextView tvLargeUrl, tvUrl;
+        ImageView background;
 
         public ViewHolder(View itemView){
             super(itemView);
+            tvLargeUrl = (TextView) itemView.findViewById(R.id.long_url);
+            tvUrl = (TextView)itemView.findViewById(R.id.id_url);
+            background = (ImageView)itemView.findViewById(R.id.image);
+
         }
 
         public void click(final ImageListData imageListData, final OnItemClickListener listener){
